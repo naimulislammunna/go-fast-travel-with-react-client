@@ -1,8 +1,9 @@
+import Hero from "../Header/Hero";
 
 const Home = () => {
     return (
         <div>
-            Homeeee
+            <Hero></Hero>
         </div>
     );
 };
