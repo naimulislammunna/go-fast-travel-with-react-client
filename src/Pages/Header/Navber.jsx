@@ -5,8 +5,9 @@ const Navber = () => {
     const {userInfo, set} = useState(false)
     const items = <>
         <Link to='/'><button className="button">Home</button></Link>
-        <Link to='/updateUser'><button className="button">Update User</button></Link>
-        <Link to='/ourProfile'><button className="button">User Profile</button></Link>
+        <Link to='/allTouristSpot'><button className="button">All Tourist Spot</button></Link>
+        <Link to='/addTouristSpot'><button className="button">Add Tourist Spot</button></Link>
+        <Link to='/myList'><button className="button">My List</button></Link>
 
     </>
     return (
