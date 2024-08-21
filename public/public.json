@@ -1,0 +1,35 @@
+[
+    {
+      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
+      "tourists_spot_name": "Eiffel Tower",
+      "average_cost": 150,
+      "totalVisitorsPerYear": 7000000,
+      "travel_time": "10 hours",
+      "seasonality": "Spring, Fall"
+    },
+    {
+      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
+      "tourists_spot_name": "Great Wall of China",
+      "average_cost": 200,
+      "totalVisitorsPerYear": 10000000,
+      "travel_time": "12 hours",
+      "seasonality": "Autumn"
+    },
+    {
+      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
+      "tourists_spot_name": "Statue of Liberty",
+      "average_cost": 100,
+      "totalVisitorsPerYear": 4300000,
+      "travel_time": "8 hours",
+      "seasonality": "Summer, Fall"
+    },
+    {
+      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
+      "tourists_spot_name": "Machu Picchu",
+      "average_cost": 250,
+      "totalVisitorsPerYear": 1200000,
+      "travel_time": "15 hours",
+      "seasonality": "Dry season (May to October)"
+    }
+  ]
+  

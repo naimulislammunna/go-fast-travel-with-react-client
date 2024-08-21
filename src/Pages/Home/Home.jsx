@@ -1,13 +1,15 @@
 import Hero from "../Header/Hero";
 import OurServices from "../OurServices/OurServices";
-import TouristSpot from "../TouristSpot/TouristSpot";
+import ServiceAnalysis from "../ServiceAnalysis/ServiceAnalysis";
+import TouristSpots from "../TouristSpot/TouristSpots";
 
 const Home = () => {
     return (
         <div>
             <Hero></Hero>
-            <TouristSpot></TouristSpot>
+            <TouristSpots></TouristSpots>
             <OurServices></OurServices>
+            <ServiceAnalysis></ServiceAnalysis>
         </div>
     );
 };
