@@ -1,11 +1,14 @@
+import { AiFillDollarCircle } from "react-icons/ai";
+import { IoPeople } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
-const TouristSpot = ({data}) => {
-    const {image, tourists_spot_name, average_cost, totalVisitorsPerYear, travel_time, seasonality} = data;
-    
+const TouristSpot = ({ data }) => {
+    const {_id, imageUrl, tourists_spot_name, average_cost, totalVisitorsPerYear, travel_time} = data;
+
     return (
         <div>
-                <div className="w-full max-w-[340px] space-y-3 rounded-xl bg-white p-4 shadow-lg dark:bg-[#18181B]">
+            <div className="w-full max-w-[340px] space-y-3 rounded-xl bg-white p-4 shadow-lg dark:bg-[#18181B]">
                 <div className="relative flex h-48 w-full justify-center lg:h-[260px]">
                     <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
                         {/* love  */}
@@ -14,18 +17,19 @@ const TouristSpot = ({data}) => {
                         </div>
                         <button className="rounded-xl bg-[#0095FF] px-3 py-1 font-medium text-white duration-200 hover:bg-[#0095FF]/90 ">{travel_time}</button>
                     </div>
-                    <img width={400} height={400} className="rounded-lg bg-black/40 object-cover" src={image} alt="card navigate ui" />
+                    <img width={400} height={400} className="rounded-lg bg-black/40 object-cover" src={imageUrl} alt="card navigate ui" />
                 </div>
                 <div className="space-y-2 font-semibold">
                     <h6 className="text-sm md:text-base lg:text-lg">{tourists_spot_name}</h6>
-                    <p className="text-xs font-semibold text-gray-400 md:text-sm">{seasonality}</p>
-                    <div className="flex gap-4">
-                        <p>${average_cost}</p>
-                        <p>{totalVisitorsPerYear}</p>
+                    <div className="flex gap-7">
+                        <p className="flex items-center gap-1"><AiFillDollarCircle />{average_cost}</p>
+                        <p className="flex items-center gap-1"><IoPeople />{totalVisitorsPerYear}</p>
                     </div>
                 </div>
                 <div className="flex flex-wrap items-center gap-6 text-sm md:text-base justify-end">
-                    <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600 button">View Details</button>
+                    <Link to={`/touristspot/${_id}`}>
+                        <button className="rounded-lg bg-[#49B2FF] px-4 py-2 font-semibold text-white duration-300 hover:scale-105 hover:bg-sky-600 button">View Details</button>
+                    </Link>
                 </div>
             </div>
 

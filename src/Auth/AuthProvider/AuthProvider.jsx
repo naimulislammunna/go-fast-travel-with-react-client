@@ -7,11 +7,12 @@ export  const AuthContext = createContext();
 const AuthProvider = ({children}) => {
     const [userInfo, setuserInfo] = useState({});
     const [loading, setLoading] = useState(true);
-
+   
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
     const handleRegister = (email, password) =>{
+        setLoading(true);
        return createUserWithEmailAndPassword(auth, email, password);
         
     }
@@ -20,9 +21,11 @@ const AuthProvider = ({children}) => {
        return signInWithEmailAndPassword(auth, email, password);
     }
     const googleLogIn = () =>{
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     const githubLogIn = () =>{
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
     const logOut = () =>{

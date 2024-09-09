@@ -1,7 +1,7 @@
 
 const OurServices = () => {
     return (
-        <div>
+        <div className="my-20">
             <div className="home-container">
                 <h1 className="text-center text-3xl font-semibold my-5">We Offer Best Services</h1>
                 <div className="flex flex-col sm:flex-row gap-10">

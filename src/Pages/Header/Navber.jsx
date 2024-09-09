@@ -1,18 +1,22 @@
-import {  useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Auth/AuthProvider/AuthProvider";
 
 const Navber = () => {
-    const {userInfo, set} = useState(false)
+    const { userInfo, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut();
+    }
     const items = <>
-        <Link to='/'><button className="button">Home</button></Link>
-        <Link to='/allTouristSpot'><button className="button">All Tourist Spot</button></Link>
-        <Link to='/addTouristSpot'><button className="button">Add Tourist Spot</button></Link>
-        <Link to='/myList'><button className="button">My List</button></Link>
+        <Link to='/'><button className="hover:border-b-2 hover:border-white text-lg font-bold mx-2">Home</button></Link>
+        <Link to='/alltouristspots'><button className="hover:border-b-2 hover:border-white text-lg font-bold mx-2">All Tourist Spot</button></Link>
+        <Link to='/addTouristSpot'><button className="hover:border-b-2 hover:border-white text-lg font-bold mx-2">Add Tourist Spot</button></Link>
+        <Link to='/myList'><button className="hover:border-b-2 hover:border-white text-lg font-bold mx-2">My List</button></Link>
 
     </>
     return (
-        <div className="home-container">
-            <div className="navbar">
+        <div className=" bg-green-800">
+            <div className="navbar home-container">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -35,21 +39,24 @@ const Navber = () => {
                             {items}
                         </ul>
                     </div>
-                    <a className=" text-3xl">Go Fast<span className="text-[#00A651] ml-3">Travel</span></a>
+                    <Link to='/'>
+                        <a className=" text-3xl  text-white">Go Fast<span className="text-[#00A651] bg-white p-2 rounded-lg ml-3">Travel</span>
+                        </a>
+                    </Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-center hidden lg:flex  text-white">
                     <ul className="menu menu-horizontal px-1 gap-3">
                         {items}
                     </ul>
                 </div>
-                <div className="navbar-end gap-3">
+                <div className="navbar-end gap-3  text-white">
                     {
                         userInfo ? <>
-                            <button className="button">Sign Out</button>
+                            <button onClick={handleLogOut} className="button">Sign Out</button>
                             <h3>{userInfo.displayName}</h3>
                             <div className="w-10">
                                 <img className="rounded-full"
-                                    alt="Tailwind CSS Navbar component"
+                                    alt=""
                                     src={userInfo.photoURL} />
                             </div>
                         </>

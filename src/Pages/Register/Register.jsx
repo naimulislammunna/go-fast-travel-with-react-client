@@ -1,33 +1,53 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../Auth/AuthProvider/AuthProvider";
 
 const Register = () => {
-    const {handleRegister, updateUserProfile} = useContext(AuthContext);
+    const {handleRegister, updateUserProfile, loading} = useContext(AuthContext);
     const checkPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     
-    const [name, setName] = useState('')
-    const [photo, setPhoto] = useState('')
+    const [name, setName] = useState('');
+    const [photo, setPhoto] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    if(loading){
+        <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-sky-400 flex justify-center my-20"></div>
+    }
+    
+
     const handleSubmit = (e) =>{
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        setName(e.target.name.value)
-        setPhoto(e.target.photo.value)
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        setName(form.name.value)
+        setPhoto(form.photo.value)
         console.log(name, photo);
 
         if(!checkPassword.test(password)){
             return toast('password incorrect')
         }
         handleRegister(email, password)
-        .then()
-        .catch(err => console.log(err))
+        .then((res) => {
+            console.log(res);
+            
+            // form.reset()
+            toast.success('register Successfully');
+            navigate(location.state);
+            
+        })
+        .catch(()=> toast.warn('register warning'))
 
         updateUserProfile(name, photo)
-        .then(res => console.log('profile update', res))
-        .catch(err => console.log(err)) 
+        .then(() => {
+            // form.reset()
+            toast.success('Update In Successfully');
+            navigate(location.state);
+        })
+        .catch(()=> toast.warn('update warning'))
 
     }
 

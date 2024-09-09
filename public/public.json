@@ -1,35 +1,68 @@
 [
-    {
-      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
-      "tourists_spot_name": "Eiffel Tower",
-      "average_cost": 150,
-      "totalVisitorsPerYear": 7000000,
-      "travel_time": "10 hours",
-      "seasonality": "Spring, Fall"
-    },
-    {
-      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
-      "tourists_spot_name": "Great Wall of China",
-      "average_cost": 200,
-      "totalVisitorsPerYear": 10000000,
-      "travel_time": "12 hours",
-      "seasonality": "Autumn"
-    },
-    {
-      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
-      "tourists_spot_name": "Statue of Liberty",
-      "average_cost": 100,
-      "totalVisitorsPerYear": 4300000,
-      "travel_time": "8 hours",
-      "seasonality": "Summer, Fall"
-    },
-    {
-      "image": "https://i.postimg.cc/9Q5QvBS6/Rectangle-25.png",
-      "tourists_spot_name": "Machu Picchu",
-      "average_cost": 250,
-      "totalVisitorsPerYear": 1200000,
-      "travel_time": "15 hours",
-      "seasonality": "Dry season (May to October)"
-    }
-  ]
-  
+  {
+    "tourists_spot_name": "Eiffel Tower",
+    "country_Name": "France",
+    "location": "Paris",
+    "average_cost": 200,
+    "travel_time": "5 hours",
+    "totalVisitorsPerYear": 7000000,
+    "userName": "John Doe",
+    "userEmail": "john.doe@example.com",
+    "imageUrl": "https://example.com/eiffel-tower.jpg"
+  },
+  {
+    "tourists_spot_name": "Great Wall of China",
+    "country_Name": "China",
+    "location": "Beijing",
+    "average_cost": 150,
+    "travel_time": "8 hours",
+    "totalVisitorsPerYear": 10000000,
+    "userName": "Jane Smith",
+    "userEmail": "jane.smith@example.com",
+    "imageUrl": "https://example.com/great-wall-of-china.jpg"
+  },
+  {
+    "tourists_spot_name": "Machu Picchu",
+    "country_Name": "Peru",
+    "location": "Cusco Region",
+    "average_cost": 250,
+    "travel_time": "10 hours",
+    "totalVisitorsPerYear": 1500000,
+    "userName": "Carlos Hernandez",
+    "userEmail": "carlos.hernandez@example.com",
+    "imageUrl": "https://example.com/machu-picchu.jpg"
+  },
+  {
+    "tourists_spot_name": "Statue of Liberty",
+    "country_Name": "United States",
+    "location": "New York City",
+    "average_cost": 120,
+    "travel_time": "6 hours",
+    "totalVisitorsPerYear": 4000000,
+    "userName": "Emily Clark",
+    "userEmail": "emily.clark@example.com",
+    "imageUrl": "https://example.com/statue-of-liberty.jpg"
+  },
+  {
+    "tourists_spot_name": "Taj Mahal",
+    "country_Name": "India",
+    "location": "Agra",
+    "average_cost": 100,
+    "travel_time": "4 hours",
+    "totalVisitorsPerYear": 6000000,
+    "userName": "Amit Patel",
+    "userEmail": "amit.patel@example.com",
+    "imageUrl": "https://example.com/taj-mahal.jpg"
+  },
+  {
+    "tourists_spot_name": "Sydney Opera House",
+    "country_Name": "Australia",
+    "location": "Sydney",
+    "average_cost": 180,
+    "travel_time": "12 hours",
+    "totalVisitorsPerYear": 8500000,
+    "userName": "Sophie Lee",
+    "userEmail": "sophie.lee@example.com",
+    "imageUrl": "https://example.com/sydney-opera-house.jpg"
+  }
+]

@@ -1,35 +1,63 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
 
 
 const SignIn = () => {
-    const {handleSignIn, googleLogIn, githubLogIn} = useContext(AuthContext);
+    const {handleSignIn, googleLogIn, githubLogIn, loading} = useContext(AuthContext);
+    const [error, setError] = useState("");
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    if(loading){
+        <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-4 border-r-transparent border-l-transparent border-sky-400 flex justify-center my-20"></div>
+    }
 
     const handleGoogleLogIn = () =>{
         googleLogIn()
-        .then(res => console.log("g log in", res))
-        .catch(err => console.log(err))
+        .then(() => {
+            toast.success('Sign In Successfully');
+            navigate(location.state);
+        })
+        .catch(()=> toast.warn('warning'))
     }
     const handleGithubLogIn = () =>{
         githubLogIn()
-        .then(res => console.log("git log in", res))
-        .catch(err => console.log(err))
+        .then(() => {
+            toast.success('Sign In Successfully');
+            navigate(location.state);
+        })
+        .catch(()=> toast.warn('warning'))
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        
 
         handleSignIn(email, password)
-        .then(res => console.log("sign in ok",res))
-        .catch(err => console.log(err))
+        .then(() => {
+            toast.success('Sign In Successfully');
+            navigate(location.state);
+            form.reset();
+            
+        })
+        .catch((err)=> {
+            const errMsg = err.message.split('/');
+            setError(errMsg[1])
+            toast.warn(error)
+        }
+        )
     }
 
      
     return (
         <div className="my-5">
+            <ToastContainer/>
             <div className="mx-auto w-full max-w-md space-y-4 rounded-lg border bg-white p-10 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
                 <h1 className="text-3xl font-semibold">Sign In</h1>
                 <form onSubmit={handleSubmit} className="space-y-6">
