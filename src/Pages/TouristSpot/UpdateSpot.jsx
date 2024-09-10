@@ -1,9 +1,12 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const AddTouristSpot = () => {
+const UpdateSpot = () => {
+    const { id } = useParams();
+    // console.log(id);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -14,24 +17,22 @@ const AddTouristSpot = () => {
         const travel_time = form.travel_time.value;
         const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
         const imageUrl = form.imageUrl.value;
-        const userEmail = form.user_email.value;
-        const userName = form.user_name.value;
 
-        console.log(tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl, userEmail, userName);
+        console.log(tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl);
 
 
-        const response = await axios.post('http://localhost:3000/add-tourist-spot', { tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear,userName, userEmail, imageUrl })
-        .then(() => {
-            toast('Post Complete')
-            form.reset();
-        });
+        const response = await axios.patch(`http://localhost:3000/update/${id}`, { tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl })
+            .then(() => {
+                toast('Update Complete')
+                form.reset();
+            });
         console.log(response);
     }
 
 
     return (
         <div>
-            <ToastContainer/>
+            <ToastContainer />
             <div className="home-container">
                 <Link to='/'><h2 className="my-4 text-lg font-semibold">{`<-`} Back Home</h2></Link>
                 <div className="bg-[#F4F3F0]">
@@ -40,7 +41,7 @@ const AddTouristSpot = () => {
                             <div className="grid w-full grid-cols-2 gap-4">
                                 <div className="space-y-2 text-sm">
                                     <label className="text-sm font-serif font-medium leading-none text-zinc-700 dark:text-zinc-300" htmlFor="first_name">
-                                    Tourists spot name
+                                        Tourists spot name
                                     </label>
                                     <input
                                         className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none dark:border-zinc-700"
@@ -52,7 +53,7 @@ const AddTouristSpot = () => {
                                 </div>
                                 <div className="space-y-2 text-sm">
                                     <label className="font-serif text-sm font-medium leading-none text-zinc-700 dark:text-zinc-300" htmlFor="first_name">
-                                    Country Name
+                                        Country Name
                                     </label>
                                     <input
                                         className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none dark:border-zinc-700"
@@ -76,7 +77,7 @@ const AddTouristSpot = () => {
                                 </div>
                                 <div className="space-y-2 text-sm">
                                     <label className="font-serif text-sm font-medium leading-none text-zinc-700 dark:text-zinc-300" htmlFor="first_name">
-                                    Average Cost
+                                        Average Cost
                                     </label>
                                     <input
                                         className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none dark:border-zinc-700"
@@ -110,30 +111,6 @@ const AddTouristSpot = () => {
                                         type="text"
                                     />
                                 </div>
-                                <div className="space-y-2 text-sm">
-                                    <label className="font-serif text-sm font-medium leading-none text-zinc-700 dark:text-zinc-300" htmlFor="first_name">
-                                        User Name
-                                    </label>
-                                    <input
-                                        className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none dark:border-zinc-700"
-                                        id="first_name"
-                                        placeholder=" User Name"
-                                        name="user_name"
-                                        type="text"
-                                    />
-                                </div>
-                                <div className="space-y-2 text-sm">
-                                    <label className="font-serif text-sm font-medium leading-none text-zinc-700 dark:text-zinc-300" htmlFor="last_name">
-                                       User Email
-                                    </label>
-                                    <input
-                                        className="flex h-10 w-full rounded-md border px-3 py-2  focus-visible:outline-none dark:border-zinc-700"
-                                        id="last_name"
-                                        placeholder="Enter User Email"
-                                        name="user_email"
-                                        type="text"
-                                    />
-                                </div>
                             </div>
                             <div className="space-y-2 text-sm">
                                 <label className="font-serif text-sm font-medium leading-none text-zinc-700 dark:text-zinc-300" htmlFor="email">
@@ -147,7 +124,7 @@ const AddTouristSpot = () => {
                                     type="text"
                                 />
                             </div>
-                            <button type="submit" className="button my-4">Submit</button>
+                            <button type="submit" className="button my-4">Update</button>
 
                         </form>
                     </div>
@@ -158,4 +135,4 @@ const AddTouristSpot = () => {
     );
 };
 
-export default AddTouristSpot;
+export default UpdateSpot;

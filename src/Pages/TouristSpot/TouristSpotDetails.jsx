@@ -6,7 +6,7 @@ const TouristSpotDetails = () => {
     const { userName, userEmail, imageUrl, country_Name, location, tourists_spot_name, average_cost, totalVisitorsPerYear, travel_time, seasonality } = data;
 
     return (
-        <div className="home-container">
+        <div className="home-container py-5">
             <div className="card lg:card-side bg-base-100 shadow-xl">
                 <figure>
                     <img

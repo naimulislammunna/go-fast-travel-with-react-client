@@ -18,7 +18,7 @@ const SignIn = () => {
         googleLogIn()
         .then(() => {
             toast.success('Sign In Successfully');
-            navigate(location.state);
+            navigate(location.state || '/');
         })
         .catch(()=> toast.warn('warning'))
     }
@@ -26,7 +26,7 @@ const SignIn = () => {
         githubLogIn()
         .then(() => {
             toast.success('Sign In Successfully');
-            navigate(location.state);
+            navigate(location.state || '/');
         })
         .catch(()=> toast.warn('warning'))
     }
@@ -42,7 +42,7 @@ const SignIn = () => {
         handleSignIn(email, password)
         .then(() => {
             toast.success('Sign In Successfully');
-            navigate(location.state);
+            navigate(location.state || '/');
             form.reset();
             
         })

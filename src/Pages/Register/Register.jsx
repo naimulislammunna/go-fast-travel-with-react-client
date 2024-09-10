@@ -33,19 +33,17 @@ const Register = () => {
         handleRegister(email, password)
         .then((res) => {
             console.log(res);
-            
-            // form.reset()
             toast.success('register Successfully');
-            navigate(location.state);
+            navigate(location.state || '/');
+            form.reset()
             
         })
         .catch(()=> toast.warn('register warning'))
 
         updateUserProfile(name, photo)
         .then(() => {
-            // form.reset()
             toast.success('Update In Successfully');
-            navigate(location.state);
+            navigate(location.state || '/');
         })
         .catch(()=> toast.warn('update warning'))
 

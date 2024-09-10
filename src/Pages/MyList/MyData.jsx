@@ -1,8 +1,9 @@
 import { toast, ToastContainer } from "react-toastify";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 const MyData = ({item}) => {
     const {_id, imageUrl, tourists_spot_name, location} = item;
-    
+
     const handleDelete = () => {
 
         const procced = confirm('Are you sure delete Spot');
@@ -25,7 +26,7 @@ const MyData = ({item}) => {
                 <td className="py-4 px-6 border-b text-xl font-medium">{tourists_spot_name}</td>
                 <td className="py-4 px-6 border-b text-xl font-medium">{location}</td>
                 <td className="py-4 px-6 border-b">
-                    <button className="button">Update</button>
+                    <Link to={`/update/${_id}`} ><button className="button">Update</button></Link>
                     <button onClick={handleDelete} className="button my-auto ml-4 cursor-pointer"><MdDelete/></button>
                 </td>
             </tr>

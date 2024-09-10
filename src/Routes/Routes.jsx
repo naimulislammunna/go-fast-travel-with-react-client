@@ -10,6 +10,7 @@ import TouristSpotDetails from "../Pages/TouristSpot/TouristSpotDetails";
 import MyList from "../Pages/MyList/MyList";
 import PrivetRoute from "./PrivetRoute";
 import AllTouristSpots from "../Pages/TouristSpot/AllTouristSpots";
+import UpdateSpot from "../Pages/TouristSpot/UpdateSpot";
 
 const router = createBrowserRouter([
     {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/register',
-                element:<Register></Register>
+                element: <Register></Register>
 
             },
             {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
                     <PrivetRoute>
                         <AddTouristSpot></AddTouristSpot>
                     </PrivetRoute>
+            },
+            {
+                path: '/update/:id',
+                element: <UpdateSpot></UpdateSpot>
             }
         ]
     }

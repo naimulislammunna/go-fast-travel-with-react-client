@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Auth/AuthProvider/AuthProvider";
 
@@ -16,10 +16,10 @@ const Navber = () => {
     </>
     return (
         <div className=" bg-green-800">
-            <div className="navbar home-container">
+            <div className="navbar sm:home-container">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="btn p-0 btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -40,7 +40,7 @@ const Navber = () => {
                         </ul>
                     </div>
                     <Link to='/'>
-                        <a className=" text-3xl  text-white">Go Fast<span className="text-[#00A651] bg-white p-2 rounded-lg ml-3">Travel</span>
+                        <a className="text-lg sm:text-3xl  text-white">Go Fast<span className="text-[#00A651] bg-white p-2 rounded-lg ml-3">Travel</span>
                         </a>
                     </Link>
                 </div>
@@ -66,8 +66,6 @@ const Navber = () => {
                                 <Link to='/SignIn'><button className="button">Sign In</button></Link>
                             </>
                     }
-
-
                 </div>
             </div>
         </div>
