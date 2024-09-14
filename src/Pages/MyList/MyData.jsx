@@ -8,7 +8,7 @@ const MyData = ({item}) => {
 
         const procced = confirm('Are you sure delete Spot');
         if (procced) {
-            fetch(`http://localhost:3000/mylist/${_id}`,{
+            fetch(`https://go-fast-travel-server.vercel.app/mylist/${_id}`,{
                 method: "DELETE"
             })
                 .then(res => {res.json() 

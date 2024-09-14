@@ -20,7 +20,7 @@ const AddTouristSpot = () => {
         console.log(tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl, userEmail, userName);
 
 
-        const response = await axios.post('http://localhost:3000/add-tourist-spot', { tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear,userName, userEmail, imageUrl })
+        const response = await axios.post('https://go-fast-travel-server.vercel.app/add-tourist-spot', { tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear,userName, userEmail, imageUrl })
         .then(() => {
             toast('Post Complete')
             form.reset();

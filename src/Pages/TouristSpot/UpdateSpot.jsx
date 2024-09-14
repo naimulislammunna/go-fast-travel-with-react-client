@@ -21,7 +21,7 @@ const UpdateSpot = () => {
         console.log(tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl);
 
 
-        const response = await axios.patch(`http://localhost:3000/update/${id}`, { tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl })
+        const response = await axios.patch(`https://go-fast-travel-server.vercel.app/update/${id}`, { tourists_spot_name, country_Name, location, average_cost, travel_time, totalVisitorsPerYear, imageUrl })
             .then(() => {
                 toast('Update Complete')
                 form.reset();

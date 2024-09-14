@@ -4,7 +4,7 @@ import axios from "axios";
 import MyData from "./MyData";
 
 const MyList = () => {
-    const { userInfo , loading } = useContext(AuthContext);
+    const { userInfo } = useContext(AuthContext);
     // const [loading, setLoading] = useState(true);
 
     const [myData, setMyData] = useState([]);
@@ -22,7 +22,7 @@ const MyList = () => {
         if (!email) {
            return 
         }
-        const uri = `http://localhost:3000/mylist?email=${email}`
+        const uri = `https://go-fast-travel-server.vercel.app/mylist?email=${email}`
         if(email){
             axios.get(uri)
             .then(data => {

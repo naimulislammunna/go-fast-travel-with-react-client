@@ -25,14 +25,14 @@ const router = createBrowserRouter([
                     {
                         index: true,
                         element: <TouristSpots></TouristSpots>,
-                        loader: () => fetch('http://localhost:3000/touristspots')
+                        loader: () => fetch('https://go-fast-travel-server.vercel.app/touristspots')
                     }
                 ]
             },
             {
                 path: '/alltouristspots',
                 element: <AllTouristSpots />,
-                loader: () => fetch('http://localhost:3000/touristspots')
+                loader: () => fetch('https://go-fast-travel-server.vercel.app/touristspots')
             },
             {
                 path: '/touristspot/:id',
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
                     <PrivetRoute>
                         <TouristSpotDetails></TouristSpotDetails>
                     </PrivetRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/touristspot/${params.id}`)
+                loader: ({ params }) => fetch(`https://go-fast-travel-server.vercel.app/touristspot/${params.id}`)
             },
             {
                 path: '/mylist',
